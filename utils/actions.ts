@@ -58,8 +58,6 @@ export const fetchProfileImage = async ()=>{
         }
     });
 
-    console.log(profile?.profileImage);
-
     return profile?.profileImage
 }
 

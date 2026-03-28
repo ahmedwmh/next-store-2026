@@ -1,8 +1,10 @@
 import { PrismaClient } from '@/lib/generated/prisma/client';
 
 const prismaClientSingleton = () => {
+  const url =
+    process.env.DATABASE_URL ?? process.env.DIRECT_URL;
   return new PrismaClient({
-    datasourceUrl: process.env.DATABASE_URL,
+    ...(url ? { datasourceUrl: url } : {}),
   });
 };
 
